@@ -1,0 +1,36 @@
+{
+	"name": "oppem",
+	"version": "1.0.0",
+	"description": "Test for Oppem developer position",
+	"scripts": {
+		"build": "tsc",
+		"start:vate": "ts-node vate/src/mainApi.ts",
+		"start:argelor-mitil": "ts-node argelor_mitil/src/mainApi.ts"
+	},
+	"author": "Matheus Azevedo <matheusbzevedo@gmail.com>",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/express": "^5.0.2",
+		"@types/node": "^22.15.21",
+		"lint-staged": "^16.0.0",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"bullmq": "^5.53.0",
+		"express": "^5.1.0",
+		"ioredis": "^5.6.1",
+		"redis": "^5.1.0"
+	},
+	"volta": {
+		"node": "22.15.1",
+		"pnpm": "10.11.0"
+	},
+	"lint-staged": {
+		"*.ts": [
+			"pnpx @biomejs/biome check --write",
+			"pnpx @biomejs/biome format --write"
+		]
+	}
+}

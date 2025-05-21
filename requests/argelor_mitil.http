@@ -1,0 +1,33 @@
+POST http://localhost:3002/daily-reports
+Content-Type: application/json
+
+{
+	"date": "1994-09-16",
+	"description": "Fundação concluída",
+	"site": "OBRA-001",
+	"weather": "Ensolarado",
+	"workers": ["Carlos", "Marta"]
+}
+
+###
+
+GET http://localhost:3002/daily-reports
+Content-Type: application/json
+
+###
+
+GET http://localhost:3002/daily-reports/8fda846b-c180-41c1-a0ca-364da842f8bb
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3002/daily-reports/f234ab4b-0a42-4678-b163-652adf8d5d3e
+Content-Type: application/json
+
+{
+	"date": "1994-09-17",
+	"description": "Fundação finalizada",
+	"site": "OBRA-001",
+	"weather": "Chuvoso",
+	"workers": ["Carlos", "Marta"]
+}
