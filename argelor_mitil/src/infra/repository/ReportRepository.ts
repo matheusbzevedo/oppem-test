@@ -8,32 +8,32 @@ export interface ReportRepository {
 	update(report: Report): Promise<void>;
 }
 
-// export class ReportRepositoryMemory implements ReportRepository {
-// 	reports: Report[];
+export class ReportRepositoryMemory implements ReportRepository {
+	reports: Report[];
 
-// 	constructor() {
-// 		this.reports = [];
-// 	}
+	constructor() {
+		this.reports = [];
+	}
 
-// 	async getAll(): Promise<Report[]> {
-// 		return await this.reports;
-// 	}
+	async getAll(): Promise<Report[]> {
+		return await this.reports;
+	}
 
-// 	async getById(reportId: string): Promise<Report | undefined> {
-// 		const report = this.reports.find((report) => report.id === reportId);
+	async getById(reportId: string): Promise<Report | undefined> {
+		const report = this.reports.find((report) => report.id === reportId);
 
-// 		return report;
-// 	}
+		return report;
+	}
 
-// 	async save(report: Report): Promise<void> {
-// 		await this.reports.push(report);
-// 	}
+	async save(report: Report): Promise<void> {
+		await this.reports.push(report);
+	}
 
-// 	async update(report: Report): Promise<void> {
-// 		const foundIndex = this.reports.findIndex((rep) => rep.id === report.id);
-// 		this.reports[foundIndex] = report;
-// 	}
-// }
+	async update(report: Report): Promise<void> {
+		const foundIndex = this.reports.findIndex((rep) => rep.id === report.id);
+		this.reports[foundIndex] = report;
+	}
+}
 
 export class ReportRepositoryRedis implements ReportRepository {
 	private client: RedisClientType;

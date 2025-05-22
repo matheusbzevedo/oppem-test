@@ -4,10 +4,10 @@ import GetReportById from './application/usecase/GetReportById';
 import UpdateReport from './application/usecase/UpdateReport';
 import { ExpressAdapter } from './infra/http/HttpServer';
 import ReportController from './infra/http/ReportController';
-import { ReportRepositoryRedis } from './infra/repository/ReportRepository';
+import { ReportRepositoryMemory } from './infra/repository/ReportRepository';
 
 const httpServer = new ExpressAdapter();
-const reportRepository = new ReportRepositoryRedis(process.env.REDIS_URL);
+const reportRepository = new ReportRepositoryMemory();
 const createReport = new CreateReport(reportRepository);
 const getAllReport = new GetAllReport(reportRepository);
 const getReportById = new GetReportById(reportRepository);

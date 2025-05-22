@@ -1,8 +1,8 @@
 import Report from '../../domain/entity/Report';
-import type { CreateReportQueue } from '../../infra/jobs/queues/CreateReport.queue';
+import type { ReportRepository } from '../../infra/repository/ReportRepository';
 
 export default class CreateReport {
-	constructor(private readonly createReportQueue: CreateReportQueue) {}
+	constructor(private readonly reportRepository: ReportRepository) {}
 
 	async execute(input: Input): Promise<Output> {
 		const report = Report.create(
@@ -13,7 +13,7 @@ export default class CreateReport {
 			input.workers,
 		);
 
-		await this.createReportQueue.enqueue(report);
+		await this.reportRepository.save(report);
 
 		return {
 			createdAt: report.getDate(),
