@@ -10,8 +10,6 @@ export class CreateReportQueue {
 	}
 
 	async enqueue(report: Report): Promise<void> {
-		const response = await this.queue.add('createReport', report);
-
-		console.log(response);
+		await this.queue.add('createReport', report);
 	}
 }

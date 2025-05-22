@@ -12,7 +12,6 @@ export default class CreateReport {
 			input.weather,
 			input.workers,
 		);
-		console.log('create');
 
 		await this.createReportQueue.enqueue(report);
 
